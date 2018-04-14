@@ -6,7 +6,7 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/14 13:43:51 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/14 14:58:20 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,19 @@ void		ft_error_exit()
 	exit(0);
 }
 
-void		ft_make_char(char c, t_tetro)
+void		ft_make_char(char c, t_tetro tetroes, int char_count, int line, int n)
 {
-	
+	int		valeur;
+
+	valeur = 8;
+	if (c != '.' && c != '#')
+		ft_error_exit();
+	if (c == '#')
+	{
+		while (char_count--)
+			valeur = valeur /2;
+		tetroes->tet[n][line_count] += valeur;
+	}
 }
 
 void		ft_read_check(int fd)
@@ -34,17 +44,19 @@ void		ft_read_check(int fd)
 	char	buf;
 	int		line_count;
 	int		char_count;
+	int		n;
 
+	n = 0;
 	line_count = 0;
 	char_count = 0;
 	while (read(fd, &buf, 1))
 	{
 		if (line_count == 0)
-			ft_init_tetromino();
-		if (char_count <= 4 && line_count != 5)
-			ft_make_char(buf);
+			n++;
+		if (char_count < 4 && line_count != 4)
+			ft_make_char(buf, tetroes, char_count, line_count, n);
 		if (char_count == 5)
-		{	
+		{
 			if (buf != '\n')
 				ft_error_exit();
 			line_count++;
@@ -57,7 +69,9 @@ void		ft_read_check(int fd)
 			char_count = -1;
 		}
 			char_count++;
-	}		
+	}
+	if (line_count != 0)
+		ft_error_exit();
 }
 
 
