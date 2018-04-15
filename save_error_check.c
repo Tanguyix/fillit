@@ -18,12 +18,6 @@
 void	ft_putstr(char *str);
 void	ft_putchar(char c);
 
-void		ft_error_exit()
-{
-	ft_putstr("error\n");
-	exit(0);
-}
-
 void		ft_make_char(char c, t_tetro tetroes, int char_count, int line, int n)
 {
 	int		valeur;
@@ -39,33 +33,31 @@ void		ft_make_char(char c, t_tetro tetroes, int char_count, int line, int n)
 	}
 }
 
-void		ft_read_check(int fd)
+t_tetro		ft_read_check(int fd, t_tetro tetroes)
 {
 	char	buf;
 	int		line_count;
 	int		char_count;
-	int		n;
 
-	n = 0;
-	line_count = 0;
+	line_count = 1;
 	char_count = 0;
 	while (read(fd, &buf, 1))
 	{
 		if (line_count == 0)
-			n++;
+			n->tetroes++;
 		if (char_count < 4 && line_count != 4)
-			ft_make_char(buf, tetroes, char_count, line_count, n);
-		if (char_count == 5)
+			ft_make_char(buf, tetroes, char_count, line_count, n->tetroes);
+		if (line_count == 4)
+		{
+			if (buf != '\n')
+				ft_error_exit();
+			line_count == 0;
+		}
+		if (char_count == 4)
 		{
 			if (buf != '\n')
 				ft_error_exit();
 			line_count++;
-		}
-		if (line_count == 5)
-		{
-			if (buf != '\n')
-				ft_error_exit();
-			line_count = 0;
 			char_count = -1;
 		}
 			char_count++;
