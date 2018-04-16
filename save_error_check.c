@@ -6,7 +6,7 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/16 09:33:51 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 09:43:31 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 void	ft_putstr(char *str);
 void	ft_putchar(char c);
 
-void		ft_make_char(char c, t_tetro tetroes, int char_count, int line, int n)
+void		ft_make_char(char c, t_tetro *tetroes, int char_count, int line, int n)
 {
 	int		valeur;
 
@@ -29,11 +29,11 @@ void		ft_make_char(char c, t_tetro tetroes, int char_count, int line, int n)
 	{
 		while (char_count--)
 			valeur = valeur /2;
-		tetroes->tet[n][line_count] += valeur;
+		(*tetroes).tet[n][line_count] += valeur;
 	}
 }
 
-t_tetro		ft_read_check(int fd, t_tetro tetroes)
+t_tetro		ft_read_check(int fd, t_tetro *tetroes)
 {
 	char	buf;
 	int		line_count;
@@ -46,7 +46,7 @@ t_tetro		ft_read_check(int fd, t_tetro tetroes)
 		if (line_count == 0)
 			n->tetroes++;
 		if (char_count < 4 && line_count != 4)
-			ft_make_char(buf, tetroes, char_count, line_count, n->tetroes);
+			ft_make_char(buf, tetroes, char_count, line_count, tetroes.n);
 		if (line_count == 4)
 		{
 			if (buf != '\n')
