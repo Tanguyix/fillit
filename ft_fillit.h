@@ -6,7 +6,7 @@
 /*   By: twalpert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 16:35:19 by twalpert          #+#    #+#             */
-/*   Updated: 2018/04/16 11:32:06 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 11:33:48 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ typedef struct		s_fill
 t_fill				ft_read_check(int fd, t_fill tetroes);
 void				ft_usage(void);
 void				ft_error(void);
+void				ft_putstr(char *str);
+void				ft_putchar(char c);
 
 #endif

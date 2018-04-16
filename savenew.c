@@ -6,18 +6,11 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/16 11:29:13 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 11:34:16 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-void	ft_putstr(char *str);
-void	ft_putchar(char c);
 
 t_fill		ft_read_check(int fd, t_fill tetroes)
 {
@@ -43,12 +36,4 @@ t_fill		ft_read_check(int fd, t_fill tetroes)
 	if (i[0] != 0 || tetroes.n == 0 || buf != '\n')
 		ft_error_exit();
 	return (tetroes);
-}
-
-int			main(int ac, char **av)
-{
-	int		fd;
-
-	fd = open(av[1], O_RDONLY);
-	ft_read_check(fd);
 }
