@@ -6,7 +6,7 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/14 14:58:20 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 09:33:51 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_tetro		ft_read_check(int fd, t_tetro tetroes)
 		{
 			if (buf != '\n')
 				ft_error_exit();
-			line_count == 0;
+			line_count = 0;
 		}
 		if (char_count == 4)
 		{
@@ -64,8 +64,8 @@ t_tetro		ft_read_check(int fd, t_tetro tetroes)
 	}
 	if (line_count != 0)
 		ft_error_exit();
+	return (tetroes);
 }
-
 
 int			main(int ac, char **av)
 {
