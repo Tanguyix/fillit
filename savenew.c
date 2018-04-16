@@ -6,10 +6,11 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/16 11:26:09 by twalpert         ###   ########.fr       */
+/*   Updated: 2018/04/16 11:29:13 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_fillit.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -18,7 +19,7 @@
 void	ft_putstr(char *str);
 void	ft_putchar(char c);
 
-t_tetro		ft_read_check(int fd, t_tetro tetroes)
+t_fill		ft_read_check(int fd, t_fill tetroes)
 {
 	char	buf;
 	int		i[4];
