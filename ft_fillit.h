@@ -6,7 +6,7 @@
 /*   By: twalpert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 16:35:19 by twalpert          #+#    #+#             */
-/*   Updated: 2018/04/16 13:55:21 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 14:54:44 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct		s_fill
 {
-	unsigned char	**tet;
+	unsigned char	*tet[26];
 	int				n;
 	unsigned char	*box;
 	int				*tpos;
