@@ -6,7 +6,7 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/16 13:50:03 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 13:54:34 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_fill		ft_read_check(int fd, t_fill t)
 				|| (buf = '#' && t.tet[t.n][i.l] && !((t.tet[t.n][i.l]) % i.c)))
 			ft_error();
 		if (i.l != 4 && (i.c /= 2) && buf == '#' && ++i.h)
-				t.tet[t.n][i.l] += i.c;
+			t.tet[t.n][i.l] += i.c;
 		if (i.l == 4)
 			i.l = 0;
 		if (!i.c && ++i.l && (i.c = 16) && i.l > 1 && t.tet[t.n][i.l - 1] &&

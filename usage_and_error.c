@@ -6,13 +6,13 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 14:51:06 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/16 11:32:20 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 13:54:23 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fillit.h"
 
-void	ft_usage()
+void	ft_usage(void)
 {
 	ft_putstr("Usage: Creates the smallest array \
 with the tetrominos given in the file\n\n");
@@ -23,7 +23,7 @@ with the tetrominos given in the file\n\n");
 	ft_putstr(".#..\n.#..\n.#..\n.#..\n");
 }
 
-void	ft_error()
+void	ft_error(void)
 {
 	ft_putstr("error\n");
 	exit(0);
