@@ -6,7 +6,7 @@
 /*   By: tboissel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 13:31:24 by tboissel          #+#    #+#             */
-/*   Updated: 2018/04/16 11:34:16 by tboissel         ###   ########.fr       */
+/*   Updated: 2018/04/16 11:53:43 by tboissel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 t_fill		ft_read_check(int fd, t_fill tetroes)
 {
 	char	buf;
-	int		i[4];
+	t_count	ct;
 
-	i[0] = 1;		/*line_count*/
-	i[1] = 16;		/*char_count i[2] = # count*/
+	ct.line = 1;
+	ct.ch = 16;
 	while (read(fd, &buf, 1) && (buf == '.' || buf == '#' || buf == '\n'))
 	{
-		if (i[0] == 1 && !(i[2] = 0))
+		if (ct.line == 1 && !(ct.hash = 0))
 			tetroes.n++;
-		if (i[0] != 4 && (i[1] \= 2))
-			if (c == '#' && ++i[2])
-				tetroes.tet[n][i[0]] += i[1];
-		if (buf !='\n' && (i[0] == 4 || !i[1]))
-			ft_error_exit();
-		if (i[0] == 4)
-			i[0] = 0;
-		if (!i[1] && ++i[0] && (i[1] = 16))
+		if (ct.line != 4 && (ct.ch /= 2))
+			if (buf == '#' && ++ct.hash)
+				tetroes.tet[tetroes.n][ct.line] += ct.ch;
+		if (buf !='\n' && (ct.line == 4 || !ct.ch))
+			ft_error();
+		if (ct.line == 4)
+			ct.line = 0;
+		if (!ct.ch && ++ct.line && (ct.ch = 16))
 			
 	}
-	if (i[0] != 0 || tetroes.n == 0 || buf != '\n')
-		ft_error_exit();
+	if (ct.line != 0 || tetroes.n == 0 || buf != '\n')
+		ft_error();
 	return (tetroes);
 }
